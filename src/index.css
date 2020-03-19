@@ -196,10 +196,14 @@ button {
         overflow: hidden;
         outline:none;
         position: absolute; 
-        top: 2%;   
-        left: 1%;     
-        width: 20px;
+        top: 1%;   
+        left: 5%;     
+        width: 25px;
         margin-top: -2px;
+    }
+    h4{
+        font-size: 20px;
+        text-align: center;
     }
 }
 

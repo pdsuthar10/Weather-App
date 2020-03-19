@@ -158,6 +158,7 @@ class WeatherDay extends Component {
                                 color: "black",
                                 textAlign: "center"
                             }}>Enter a City</label>
+                            {/* <div className="container" style={{textAlign: "right"}}>C&deg; |  F&deg;</div> */}
                         </div>
                     </div>
                 </form>
