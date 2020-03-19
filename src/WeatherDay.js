@@ -152,7 +152,7 @@ class WeatherDay extends Component {
                 <form className="col s12" onSubmit={this.handleSubmit}>
                     <div className="row">
                         <div className="input-field col s4 offset-s4">     
-                            <input id="city" type="text" className="validate" onChange={this.handleChange}></input>
+                            <input id="city" type="text" onChange={this.handleChange}></input>
                             <label htmlFor="city" className="active" style={{
                                 fontSize: "20px",
                                 color: "black",
