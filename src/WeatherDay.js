@@ -22,7 +22,7 @@ class WeatherDay extends Component {
     }
 
     callApi(city){
-        axios.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=57808ae0e0093dd410d6cf81f988f653&units=imperial')
+        axios.get('https://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=57808ae0e0093dd410d6cf81f988f653&units=imperial')
             .then(res => {
                 console.log(res);   
                     this.setState({
@@ -39,7 +39,7 @@ class WeatherDay extends Component {
 
             })
         
-        axios.get('http://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=57808ae0e0093dd410d6cf81f988f653&units=imperial')
+        axios.get('https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=57808ae0e0093dd410d6cf81f988f653&units=imperial')
             .then(res => {
                 console.log(res)
                 this.setState({
