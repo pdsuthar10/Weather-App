@@ -89,7 +89,7 @@ class Hourly extends Component {
                 top: "48%",   
                 left: "10%"        */}
             <button onClick={this.handleClick}>
-            <FontAwesomeIcon icon={faChevronLeft} style={
+            <FontAwesomeIcon id="backIcon" icon={faChevronLeft} style={
                 {
                     fontSize: "50px",
                     color: "blue"
