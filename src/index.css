@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("back2.jpg");
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+i{
+  font-size: 100px;
+}
+
+.App{
+  margin: auto;
+}
+
+.weather
+    {
+        display: flex;
+        flex-flow: column wrap;
+        box-shadow: 0px 1px 10px 0px #cfcfcf;
+        overflow: hidden;
+        width: 1200px;
+        margin: auto;
+    }
+
+        .weather .current
+        {
+            display: flex;
+            flex-flow: row wrap;
+            background-image: url("background.png");
+            background-repeat: repeat-x;
+            /* color: white; */
+            background-size: 1200px 500px;
+            padding: 30px;
+            width: 1200px;
+            height: 500px;
+            text-shadow: 1px 1px #F68D2E;
+            opacity: 90%;
+            
+            
+        }
+
+            .weather .current .info
+            {
+                display: flex;
+                flex-flow: column wrap;
+                justify-content: space-around;
+                flex-grow: 2;
+            }
+
+                .weather .current .info .city
+                {
+                    font-size: 60px;
+                    color: cornsilk;
+                    text-align: left;
+                    letter-spacing: 2px;
+
+                }
+
+                .weather .current .info .temp
+                {
+                    font-size: 75px;
+                    color: cornsilk;
+                    text-align: left;
+                }
+
+                .weather .current .info .temp .feels{
+                  
+                  font-size: 40px;
+                  color: cornsilk;
+                  text-align: left;
+                }
+
+                .weather .current .info .wind
+                {
+                    font-size: 24px;
+                    color: cornsilk;
+                    text-align: left;
+                }
+
+            .weather .current .icon
+            {
+                text-align: center;
+                font-size: 64px;
+                flex-grow: 1;
+            }
+
+        .weather .future
+        {
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
+            .weather .future .day
+            {
+                flex-grow: 1;
+                text-align: center;
+                cursor: pointer;
+                /* background-color:beige; */
+            }
+
+                .weather .future .day:hover
+                {
+                    color: #fff;
+                    background-color: #F68D2E;
+                }
+
+                .weather .future .day h3
+                {
+                    text-transform: uppercase;
+                    color: red;
+                }
+
+                .weather .future .day p
+                {
+                    font-size: 20px;
+                }
+
+                h4{
+                  text-align: left;
+                  padding-left: 10px;
+                  color: rgb(47, 47, 233);
+                  text-transform: uppercase;
+                  letter-spacing: 2px;
+                  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+                }
+
+                button {
+                  background-color: Transparent;
+                  background-repeat:no-repeat;
+                  border: none;
+                  cursor:pointer;
+                  overflow: hidden;
+                  outline:none;
+                  position: absolute; 
+                  top: 48%;   
+                  left: 10%;            
+                }
+
+
+
+                
+                
+               
