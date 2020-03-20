@@ -14,8 +14,9 @@ class Hourly extends Component {
 
     componentDidMount(){
         const city = this.props.location.state.city;
-        console.log(city);
-        axios.get('https://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=57808ae0e0093dd410d6cf81f988f653&units=imperial')
+        console.log(this.props);
+        const unit = (this.props.unit === "F")? "imperial": "metric";
+        axios.get('https://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=57808ae0e0093dd410d6cf81f988f653&units='+unit)
             .then(res => {
                 console.log(res)
                 this.setState({
@@ -67,12 +68,12 @@ class Hourly extends Component {
                     <div className="card opacity medium blue darken-1">
                         <div className="card-content white-text">
                         {console.log(day.weather[0].main)}
-                            <h5 style={{color:"rgb(199, 35, 35)"}}>{this.tConvert(day.dt_txt.split(' ')[1])}</h5>
+                            <h5 style={{color:"rgb(199, 35, 35)", fontWeight:"bold"}}>{this.tConvert(day.dt_txt.split(' ')[1])}</h5>
                             <span className="card-title bold">{day.weather[0].main}</span>
                             <img src={"http://openweathermap.org/img/wn/"+day.weather[0].icon+"@2x.png"} />
                             
-                            <h5><strong>{day.main.temp}&deg;</strong> <small>F</small></h5>
-                            <h5>Feels like: {day.main.feels_like}&deg; <small>F</small></h5>
+                            <h5><strong>{Math.floor(day.main.temp)}&deg;</strong> <small>{this.props.unit}</small></h5>
+                            <h5>Feels like: {Math.floor(day.main.feels_like)}&deg; <small>{this.props.unit}</small></h5>
                         </div>
                     </div>
                 </div>
@@ -88,7 +89,7 @@ class Hourly extends Component {
                 position: "absolute",
                 top: "48%",   
                 left: "10%"        */}
-            <button onClick={this.handleClick}>
+            <button onClick={this.handleClick} id="backButton">
             <FontAwesomeIcon id="backIcon" icon={faChevronLeft} style={
                 {
                     fontSize: "50px",
@@ -96,7 +97,7 @@ class Hourly extends Component {
                 }
             }/></button>
             {/* </Link> */}
-                <h4 style={{color:"rgb(199, 35, 35)",textAlign:"center"}}>{moment(this.props.location.state.date).format("dddd, MMMM Do YYYY")}</h4>
+                <h4 style={{color:"rgb(199, 35, 35)",textAlign:"center",fontWeight:"bold"}}>{moment(this.props.location.state.date).format("dddd, MMMM Do YYYY")}</h4>
                 <div className="row">
                     {dayCards}
                 </div>    
@@ -107,7 +108,10 @@ class Hourly extends Component {
 
 const mapStateToProps = (state) =>{
     return{
-        city: state.city
+        city: state.city,
+        unit: state.unit,
+        speed: state.speed,
+        toggle: state.toggle
     }
 }
 
