@@ -9,6 +9,7 @@ const rootReducer =(state=initState, action) =>{
     switch (action.type) {
         case 'UPDATE_CITY':
             return{
+                ...state,
                 city : action.city
             }
         case 'UPDATE_UNIT':
