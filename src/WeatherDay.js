@@ -156,47 +156,51 @@ class WeatherDay extends Component {
         
         
         return (
-            <div className="container">
-            <br/>
-                <form className="col s12" onSubmit={this.handleSubmit}>
-                    <div className="row">
-                        <div className="input-field col s4 offset-s4">     
-                            <input type="text" className="validate" onChange={this.handleChange}></input>
-                            <label htmlFor="city" className="active" style={{
-                                fontSize: "15px",
-                                color: "rgb(199, 35, 35)",
-                                textAlign: "center"
-                            }}>ENTER A CITY</label>
-                        </div>
-                    </div>
-                </form>
-                {
-                    
-                    <div className="row">
-                    <div className="col-md-4 col-md-offset-4">
-                        <div className="weather">
-                            <div className="current">
-                                <div className="info">
-                                    <div>&nbsp;</div>
-                                    <div className="city">{this.props.city}</div>
-                                    <div className="temp" onClick={this.handleOnClick} style={{cursor:"pointer", width:"200px"}}>{Math.floor(this.state.current.temp)}&deg; <small>{this.props.unit}</small><br/>
-                                    <span className="feels"><small><small>Feels like:</small></small>{Math.floor(this.state.current.feels_like)}&deg; <small>{this.props.unit}</small></span>
+            // <div className="valign-wrapper" style={{width:"100%",height:"100%",position:"absolute"}}>
+            //     <div className="valign" style={{width:"100%"}}>
+                    <div className="container">
+                    <br/>
+                        <form className="col s12" onSubmit={this.handleSubmit}>
+                            <div className="row">
+                                <div className="input-field col s4 offset-s4">     
+                                    <input type="text" className="validate" onChange={this.handleChange}></input>
+                                    <label htmlFor="city" className="active" style={{
+                                        fontSize: "15px",
+                                        color: "rgb(199, 35, 35)",
+                                        textAlign: "center"
+                                    }}>ENTER A CITY</label>
+                                </div>
+                            </div>
+                        </form>
+                        
+                            
+                            <div className="row">
+                            <div className="col-md-4 col-md-offset-4">
+                                <div className="weather">
+                                    <div className="current">
+                                        <div className="info">
+                                            <div>&nbsp;</div>
+                                            <div className="city">{this.props.city}</div>
+                                            <div className="temp" onClick={this.handleOnClick} style={{cursor:"pointer", width:"200px"}}>{Math.floor(this.state.current.temp)}&deg; <small>{this.props.unit}</small><br/>
+                                            <span className="feels"><small><small>Feels like:</small></small>{Math.floor(this.state.current.feels_like)}&deg; <small>{this.props.unit}</small></span>
+                                            </div>
+                                            <div className="wind"><small><small>Wind:</small></small> {Math.floor(this.state.current.wind)} {this.props.speed}</div>
+                                            <div>&nbsp;</div>
+                                        </div>
+                                        <div className="icon">
+                                            <img src={"http://openweathermap.org/img/wn/"+this.state.current.icon+"@2x.png"}/>
+                                        </div>
                                     </div>
-                                    <div className="wind"><small><small>Wind:</small></small> {Math.floor(this.state.current.wind)} {this.props.speed}</div>
-                                    <div>&nbsp;</div>
+                                
+                                    <div className="future">
+                                        {dayInformation}
+                                    </div>
                                 </div>
-                                <div className="icon">
-                                     <img src={"http://openweathermap.org/img/wn/"+this.state.current.icon+"@2x.png"}/>
-                                </div>
-                            </div>
-                           
-                            <div className="future">
-                                {dayInformation}
                             </div>
                         </div>
                     </div>
-                </div>}
-            </div>
+            //         </div>
+            // </div>
         )
     }
 }
