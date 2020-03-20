@@ -157,7 +157,7 @@ class WeatherDay extends Component {
         
         return (
             // <div className="valign-wrapper" style={{width:"100%",height:"100%",position:"absolute"}}>
-            //     <div className="valign" style={{width:"100%"}}>
+                <div id="weatherDayContainer">
                     <div className="container">
                     <br/>
                         <form className="col s12" onSubmit={this.handleSubmit}>
@@ -199,7 +199,7 @@ class WeatherDay extends Component {
                             </div>
                         </div>
                     </div>
-            //         </div>
+                 </div>
             // </div>
         )
     }
