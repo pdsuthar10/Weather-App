@@ -35,7 +35,7 @@ i{
 {
     display: flex;
     flex-flow: row wrap;
-    background-image: url("background.png");
+    background-image: url("currentBackground6.jpg");
     background-repeat: repeat-x;
     /* color: white; */
     background-size: 1200px 500px;
@@ -59,9 +59,11 @@ i{
 .weather .current .info .city
 {
     font-size: 60px;
-    color: cornsilk;
+    /* color: cornsilk; */
+    color: rgb(199, 35, 35);
     text-align: left;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
 
 }
 
@@ -104,24 +106,33 @@ i{
     flex-grow: 1;
     text-align: center;
     cursor: pointer;
-    /* background-color:beige; */
+    padding: 10px 10px;
+    /* margin-top: 10px; */
+    /* margin-right: 10px; */
+    /* background-color:#FFFAFA; */
+    background-color: rgb(67,137,222);
+    /* background-image: linear-gradient(#fff,rgb(67,137,222)); */
 }
 
 .weather .future .day:hover
 {
     color: #fff;
     background-color: #F68D2E;
+    
 }
 
 .weather .future .day h3
 {
     text-transform: uppercase;
-    color: red;
+    color: rgb(255, 255, 255);
+    letter-spacing: 2px;
 }
 
 .weather .future .day p
 {
     font-size: 20px;
+    color: #fff;
+    /* color: rgba(0, 0, 0, 0.986); */
 }
 
 h4{
@@ -145,23 +156,35 @@ button {
     left: 10%;            
 }
 
+.icon img{
+    width: 200px;
+}
+
 
 @media only screen and (max-width: 768px) {
     /* For mobile: */
     [class*="col-"] {
         width: 100%;
       }
-
-    .weather .future{
-        display: inline-block;
-        width: inherit;
-        height: auto;
+    .icon{
+        flex-grow: 1;
+    }
+    .icon img{
+        width: 100px;
     }
 
-    .weather .day{
+    .weather .future{
         display: inline;
+        /* width: inherit;
+        height: auto; */
+    }
+
+    .weather .future .day{
+        /* display: inline-block; */
         width: auto;
         height: auto;
+        padding: 10px 10px;
+        margin-top: 10px;
     }
 
     .weather{
@@ -183,9 +206,9 @@ button {
     .weather .current .info .city
     {
         font-size: 40px;
-        color: cornsilk;
         text-align: left;
-        letter-spacing: 2px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
 
     }
     button {

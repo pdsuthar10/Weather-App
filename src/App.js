@@ -19,7 +19,7 @@ class App extends Component {
               )   
             }}/> */}
             {/* <Route exact path="/:city" component={WeatherDay} /> */}
-            <Route path="/hourly" component={Hourly} />
+            <Route path="/:day" component={Hourly} />
             {/* </Switch> */}
         </div>
       </BrowserRouter>

@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun } from '@fortawesome/free-solid-svg-icons'
+import { faCloudSun, faSun } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
+import thunderstorm from './thunderstorm.png'
+import drizzle from './drizzle.jpg'
+import rain from './rain.png'
+import snow from './snow.png'
+import clouds from './clouds.jpg'
+
 
 class WeatherDay extends Component {
    
@@ -17,6 +23,38 @@ class WeatherDay extends Component {
             days: [],
             //content: this.props.match.params.city,
             tempContent: '',
+        }
+
+    }
+
+    checkWeather(weather){
+        switch (weather) {
+            case "Rain":
+                return (
+                    <img src={rain} className="weatherIcon"/>
+                )  
+            case "Drizzle":
+                return (
+                     <img src={drizzle} className="weatherIcon"/>
+                )
+            case "Thunderstorm":
+                return (
+                     <img src={thunderstorm} className="weatherIcon"/>
+                )
+            case "Snow":
+                return (
+                     <img src={snow} className="weatherIcon"/>
+                )
+            case "Clouds":
+                return (
+                     <img src={clouds} className="weatherIcon"/>
+                )
+            case "Clear":
+                return (
+                     <FontAwesomeIcon icon={faSun} size="2x" color="yellow"/>
+                )
+            default:
+                return false
         }
 
     }
@@ -79,7 +117,7 @@ class WeatherDay extends Component {
             .then(res => {
                 console.log(res)
                 this.setState({
-                    current : {temp: res.data.main.temp, icon:res.data.weather[0].icon, wind:res.data.wind.speed, feels_like:res.data.main.feels_like}
+                    current : {temp: res.data.main.temp, icon:res.data.weather[0].icon, wind:res.data.wind.speed, feels_like:res.data.main.feels_like, weather:res.data.weather[0].main}
                 })
                 console.log(this.state.current)
             })
@@ -130,10 +168,10 @@ class WeatherDay extends Component {
                 return (
                     
                     <div className="day" key={day.dt_txt}>
-                        <Link to={{ pathname: '/hourly', state: {city:this.props.city, date:day.dt_txt}, props:{updateCity: this.updateCity} }}>
+                        <Link to={{ pathname: `/${moment(day.dt_txt).format('dddd')}`, state: {city:this.props.city, date:day.dt_txt}, props:{updateCity: this.updateCity} }}>
                             <h3>{moment(day.dt_txt).format('ddd')}</h3>
-                            <p>Low: {day.temp_min}&deg; F</p>
-                            <p>High: {day.temp_max}&deg; F</p>
+                            <p>{day.temp_max}&deg; F <span style={{color:"rgb(199, 35, 35)"}}>&#8593;</span> </p>
+                            <p>{day.temp_min}&deg; F <span style={{color:"black"}}>&#8595;</span> </p>
                             <img src={"http://openweathermap.org/img/wn/"+day.icon+"@2x.png"} />
                          </Link>
                     </div>
@@ -155,9 +193,9 @@ class WeatherDay extends Component {
                             <input type="text" className="validate" onChange={this.handleChange}></input>
                             <label htmlFor="city" className="active" style={{
                                 fontSize: "20px",
-                                color: "black",
+                                color: "rgb(199, 35, 35)",
                                 textAlign: "center"
-                            }}>Enter a City</label>
+                            }}>ENTER A CITY</label>
                             {/* <div className="container" style={{textAlign: "right"}}>C&deg; |  F&deg;</div> */}
                         </div>
                     </div>
@@ -178,8 +216,9 @@ class WeatherDay extends Component {
                                     <div>&nbsp;</div>
                                 </div>
                                 <div className="icon">
-                                    <p><FontAwesomeIcon icon={faSun} size="2x" color="yellow"/></p>
-                                     {/* <img src={"http://openweathermap.org/img/wn/"+this.state.current.icon+"@2x.png"} /> */}
+                                    {/* {this.checkWeather(this.state.current.weather)} */}
+                                    {/* <p><FontAwesomeIcon icon={faSun} size="2x" color="yellow"/></p> */}
+                                     <img src={"http://openweathermap.org/img/wn/"+this.state.current.icon+"@2x.png"}/>
                                 </div>
                             </div>
                             <div className="future">

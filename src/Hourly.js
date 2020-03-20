@@ -67,7 +67,7 @@ class Hourly extends Component {
                     <div className="card opacity medium blue darken-1">
                         <div className="card-content white-text">
                         {console.log(day.weather[0].main)}
-                            <h5>{this.tConvert(day.dt_txt.split(' ')[1])}</h5>
+                            <h5 style={{color:"rgb(199, 35, 35)"}}>{this.tConvert(day.dt_txt.split(' ')[1])}</h5>
                             <span className="card-title bold">{day.weather[0].main}</span>
                             <img src={"http://openweathermap.org/img/wn/"+day.weather[0].icon+"@2x.png"} />
                             
@@ -92,11 +92,11 @@ class Hourly extends Component {
             <FontAwesomeIcon id="backIcon" icon={faChevronLeft} style={
                 {
                     fontSize: "50px",
-                    color: "blue"
+                    color: "rgb(199, 35, 35)"
                 }
             }/></button>
             {/* </Link> */}
-                <h4>{moment(this.props.location.state.date).format("dddd, MMMM Do YYYY")}</h4>
+                <h4 style={{color:"rgb(199, 35, 35)",textAlign:"center"}}>{moment(this.props.location.state.date).format("dddd, MMMM Do YYYY")}</h4>
                 <div className="row">
                     {dayCards}
                 </div>    
