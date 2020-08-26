@@ -82,7 +82,7 @@ class WeatherDay extends Component {
         const city = this.props.city;
         console.log(this.props);
         const unit = (this.props.unit === "F")? "imperial": "metric";
-        axios.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=57808ae0e0093dd410d6cf81f988f653&units='+unit)
+        axios.get('https://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=57808ae0e0093dd410d6cf81f988f653&units='+unit)
             .then(res => {
                 console.log(res)
                 this.setState({
@@ -90,7 +90,7 @@ class WeatherDay extends Component {
                 })
             })
         
-        axios.get('http://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=57808ae0e0093dd410d6cf81f988f653&units='+unit)
+        axios.get('https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=57808ae0e0093dd410d6cf81f988f653&units='+unit)
             .then(res => {
                 console.log(res)
                 this.setState({
@@ -143,7 +143,7 @@ class WeatherDay extends Component {
                             <h3>{moment(day.dt_txt).format('ddd')}</h3>
                             <p>{Math.floor(day.temp_max)}&deg; {this.props.unit} <span style={{color:"rgb(199, 35, 35)"}}>&#8593;</span> </p>
                             <p>{Math.floor(day.temp_min)}&deg; {this.props.unit} <span style={{color:"black"}}>&#8595;</span> </p>
-                            <img src={"http://openweathermap.org/img/wn/"+day.icon+"@2x.png"} />
+                            <img src={"https://openweathermap.org/img/wn/"+day.icon+"@2x.png"} />
                          </Link>
                     </div>
                    
@@ -188,7 +188,7 @@ class WeatherDay extends Component {
                                             <div>&nbsp;</div>
                                         </div>
                                         <div className="icon">
-                                            <img src={"http://openweathermap.org/img/wn/"+this.state.current.icon+"@2x.png"}/>
+                                            <img src={"https://openweathermap.org/img/wn/"+this.state.current.icon+"@2x.png"}/>
                                         </div>
                                     </div>
                                 
